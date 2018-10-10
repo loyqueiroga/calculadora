@@ -5,6 +5,7 @@
  */
 package br.edu.ifro.control;
 
+import br.edu.ifro.model.Historico;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -13,6 +14,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  * FXML Controller class
@@ -55,7 +59,14 @@ public class calculadoraController implements Initializable {
        
        resultado = num1 + num2;
        
-      
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
+        EntityManager em = emf.createEntityManager();
+        
+        Historico hist1 = new Historico();
+        hist1.setPrimeiroValor(Double.parseDouble(txtNum1.getText()));
+        hist1.setSegundoValor(Double.parseDouble(txtNum2.getText()));
+        hist1.setOperador("+");
+        hist1.setResultado(Double.parseDouble(txtResultado.getText()));
        
        
     }
@@ -71,7 +82,14 @@ public class calculadoraController implements Initializable {
        
        txtResultado.setText(resultado.toString());
        
-       
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
+        EntityManager em = emf.createEntityManager();
+        
+        Historico hist1 = new Historico();
+        hist1.setPrimeiroValor(Double.parseDouble(txtNum1.getText()));
+        hist1.setSegundoValor(Double.parseDouble(txtNum2.getText()));
+        hist1.setOperador("-");
+        hist1.setResultado(Double.parseDouble(txtResultado.getText()));
     }
 
     @FXML
@@ -84,6 +102,14 @@ public class calculadoraController implements Initializable {
        resultado = num1 * num2;
        
        txtResultado.setText(resultado.toString());
+         EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
+        EntityManager em = emf.createEntityManager();
+        
+        Historico hist1 = new Historico();
+        hist1.setPrimeiroValor(Double.parseDouble(txtNum1.getText()));
+        hist1.setSegundoValor(Double.parseDouble(txtNum2.getText()));
+        hist1.setOperador("*");
+        hist1.setResultado(Double.parseDouble(txtResultado.getText()));
     }
 
     @FXML
@@ -96,6 +122,14 @@ public class calculadoraController implements Initializable {
        resultado = num1 / num2;
        
        txtResultado.setText(resultado.toString());
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
+        EntityManager em = emf.createEntityManager();
+        
+        Historico hist1 = new Historico();
+        hist1.setPrimeiroValor(Double.parseDouble(txtNum1.getText()));
+        hist1.setSegundoValor(Double.parseDouble(txtNum2.getText()));
+        hist1.setOperador("/");
+        hist1.setResultado(Double.parseDouble(txtResultado.getText()));
     }
     
     
