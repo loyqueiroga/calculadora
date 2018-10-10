@@ -5,6 +5,7 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.*?>
 
 <AnchorPane id="AnchorPane" prefHeight="449.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifro.control.calculadoraController">
     <children>
@@ -16,12 +17,28 @@
       <Label layoutX="34.0" layoutY="81.0" text="Número 2:" />
       <TitledPane layoutX="41.0" layoutY="186.0" text="Histórico">
          <content>
-            <TableView layoutX="41.0" layoutY="186.0" prefHeight="200.0" prefWidth="407.0">
+            <TableView fx:id="tbHistorico" layoutX="41.0" layoutY="186.0" prefHeight="200.0" prefWidth="407.0">
               <columns>
-                <TableColumn prefWidth="93.0" text="Número 1" />
-                  <TableColumn prefWidth="93.0" text="Número 2" />
-                  <TableColumn prefWidth="122.0" text="Operador" />
-                  <TableColumn prefWidth="98.0" text="Resultado" />
+                <TableColumn prefWidth="93.0" text="Número 1">
+                <cellValueFactory>
+                  <PropertyValueFactory property="primeiroValor" />
+                </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="93.0" text="Número 2">
+                  <cellValueFactory>
+                  <PropertyValueFactory property="segundoValor" />
+                </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="122.0" text="Operador">
+                  <cellValueFactory>
+                  <PropertyValueFactory property="operador" />
+                </cellValueFactory>
+                </TableColumn>
+                  <TableColumn prefWidth="98.0" text="Resultado">
+                      <cellValueFactory>
+                  <PropertyValueFactory property="resultado" />
+                </cellValueFactory>
+                </TableColumn>
               </columns>
             </TableView>
          </content>
@@ -30,7 +47,8 @@
       <Button fx:id="btnMulti" layoutX="273.0" layoutY="87.0" onAction="#multiplicacao" text="Multiplicar" />
       <Button fx:id="btnDiv" layoutX="352.0" layoutY="87.0" onAction="#divisao" text="Dividir" />
       <Label layoutX="34.0" layoutY="141.0" text="Resultado:" />
-      <TextField fx:id="txtResultado" layoutX="95.0" layoutY="137.0" />
+      <TextField fx:id="txtResultado" editable="false" layoutX="95.0" layoutY="137.0" />
       <Button fx:id="btnLimpar" layoutX="272.0" layoutY="137.0" onAction="#limpar" text="Limpar" />
+      <Button layoutX="362.0" layoutY="158.0" onAction="#verHistorico" text="Ver Histórico" />
     </children>
 </AnchorPane>

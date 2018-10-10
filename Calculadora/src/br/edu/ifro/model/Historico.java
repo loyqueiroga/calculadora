@@ -24,7 +24,7 @@ public class Historico {
     private String operador;
     private Double resultado;
     
-    
+   
 
     public Integer getId() {
         return id;

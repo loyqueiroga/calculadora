@@ -7,16 +7,21 @@ package br.edu.ifro.control;
 
 import br.edu.ifro.model.Historico;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  * FXML Controller class
@@ -43,6 +48,8 @@ public class calculadoraController implements Initializable {
     private TextField txtResultado;
     @FXML
     private Button btnLimpar;
+    @FXML
+    private TableView<?> tbHistorico;
 
     /**
      * Initializes the controller class.
@@ -61,6 +68,8 @@ public class calculadoraController implements Initializable {
        
        resultado = num1 + num2;
        
+       txtResultado.setText(resultado.toString());
+       
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
         EntityManager em = emf.createEntityManager();
         
@@ -69,8 +78,10 @@ public class calculadoraController implements Initializable {
         hist1.setSegundoValor(num2);
         hist1.setOperador("+");
         hist1.setResultado(resultado);
-       
-       
+        
+        em.getTransaction().begin();
+        em.persist(hist1);
+        em.getTransaction().commit();
     }
 
     @FXML
@@ -91,7 +102,11 @@ public class calculadoraController implements Initializable {
         hist1.setPrimeiroValor(num1);
         hist1.setSegundoValor(num2);
         hist1.setOperador("-");
-        hist1.setResultado(resultado);
+        hist1.setResultado(resultado);    
+        
+        em.getTransaction().begin();
+        em.persist(hist1);
+        em.getTransaction().commit();
     }
 
     @FXML
@@ -112,7 +127,11 @@ public class calculadoraController implements Initializable {
         hist1.setPrimeiroValor(num1);
         hist1.setSegundoValor(num2);
         hist1.setOperador("*");
-        hist1.setResultado(resultado);
+        hist1.setResultado(resultado);  
+        
+        em.getTransaction().begin();
+        em.persist(hist1);
+        em.getTransaction().commit();
     }
 
     @FXML
@@ -125,6 +144,7 @@ public class calculadoraController implements Initializable {
        resultado = num1 / num2;
        
         txtResultado.setText(resultado.toString());
+        
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
         EntityManager em = emf.createEntityManager();
         
@@ -133,6 +153,11 @@ public class calculadoraController implements Initializable {
         hist1.setSegundoValor(num2);
         hist1.setOperador("/");
         hist1.setResultado(resultado);
+        
+        em.getTransaction().begin();
+        em.persist(hist1);
+        em.getTransaction().commit();
+
     }
     
     
@@ -141,6 +166,18 @@ public class calculadoraController implements Initializable {
        txtNum1.setText("");
        txtNum2.setText("");
        txtResultado.setText("");
+    }
+    
+    @FXML
+    private void verHistorico(){
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
+        EntityManager em = emf.createEntityManager();
+        Query query = em.createQuery("SELECT h FROM Historico as h");
+                
+        List<Historico> historicos = query.getResultList();
+        
+        ObservableList obHistorico = FXCollections.observableArrayList(historicos);
+        tbHistorico.setItems(obHistorico);
     }
             
 }

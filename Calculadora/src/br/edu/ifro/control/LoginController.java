@@ -75,7 +75,7 @@ public class LoginController implements Initializable {
                 
                 FXMLLoader fxmlLoader = new FXMLLoader();
                 fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/calculadora.fxml"));
-                Scene scene = new Scene(fxmlLoader.load(),319,442);
+                Scene scene = new Scene(fxmlLoader.load(),500,450);
                 Stage stage = new Stage();
                 stage.setTitle("Calculadora");
                 stage.setScene(scene);
@@ -112,7 +112,7 @@ public class LoginController implements Initializable {
     public void abrirLogin() throws IOException{
     FXMLLoader fxmlLoader = new FXMLLoader();
             fxmlLoader.setLocation(getClass().getResource("/br/edu/ifro/view/Usuario.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(),200,360);
+            Scene scene = new Scene(fxmlLoader.load(),420,200);
             
             Stage stage = new Stage();
             stage.setTitle("Cadastro de Login");
