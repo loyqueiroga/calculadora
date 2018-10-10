@@ -5,38 +5,47 @@
  */
 package br.edu.ifro.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author 04647218228
  */
+@Entity
 public class Usuario {
-  
-    private String txtUsuario;
-    private String txtSenha;
-    private String txtConfirmar;
+ @Id
+ @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String Usuario;
+    private String Senha;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUsuario() {
+        return Usuario;
+    }
+
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
+    }
+
+    public String getSenha() {
+        return Senha;
+    }
+
+    public void setSenha(String Senha) {
+        this.Senha = Senha;
+    }
     
-    public String getTxtUsuario() {
-        return txtUsuario;
-    }
-
-    public void setTxtUsuario(String txtUsuario) {
-        this.txtUsuario = txtUsuario;
-    }
-
-    public String getTxtSenha() {
-        return txtSenha;
-    }
-
-    public void setTxtSenha(String txtSenha) {
-        this.txtSenha = txtSenha;
-    }
-
-    public String getTxtConfirmar() {
-        return txtConfirmar;
-    }
-
-    public void setTxtConfirmar(String txtConfirmar) {
-        this.txtConfirmar = txtConfirmar;
-    }
+    
    
 }

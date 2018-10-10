@@ -5,6 +5,7 @@
  */
 package br.edu.ifro.control;
 
+import br.edu.ifro.model.Usuario;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -12,6 +13,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 /**
  * FXML Controller class
@@ -39,7 +43,13 @@ public class UsuarioController implements Initializable {
     }    
     
     public void salvar () throws IOException{
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
+        EntityManager em = emf.createEntityManager();
         
+        Usuario  u = new Usuario ();
+        u.setUsuario(txtUsuario.getText());
+        u.setSenha(txtSenha.getText());
+       
         
     } 
 }
