@@ -6,9 +6,23 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="calculadora.br.edu.calculadoraController">
+<AnchorPane id="AnchorPane" prefHeight="449.0" prefWidth="486.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifro.control.calculadoraController">
     <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
+        <Button fx:id="btnSoma" layoutX="273.0" layoutY="56.0" onAction="#soma" text="Somar" />
+        <Label fx:id="label" layoutX="126" layoutY="120" minHeight="16" minWidth="69" />
+      <TextField fx:id="txtNum1" layoutX="95.0" layoutY="43.0" />
+      <TextField fx:id="txtNum2" layoutX="95.0" layoutY="77.0" />
+      <Label layoutX="34.0" layoutY="47.0" text="Número 1:" />
+      <Label layoutX="34.0" layoutY="81.0" text="Número 2:" />
+      <TableView layoutX="41.0" layoutY="186.0" prefHeight="200.0" prefWidth="407.0">
+        <columns>
+          <TableColumn prefWidth="406.0" text="Histórico" />
+        </columns>
+      </TableView>
+      <Button fx:id="btnSub" layoutX="335.0" layoutY="56.0" onAction="#subtracao" prefHeight="25.0" prefWidth="69.0" text="Subtrair" />
+      <Button fx:id="btnMulti" layoutX="273.0" layoutY="87.0" onAction="#multiplicacao" text="Multiplicar" />
+      <Button fx:id="btnDiv" layoutX="352.0" layoutY="87.0" onAction="#divisao" text="Dividir" />
+      <Label layoutX="34.0" layoutY="141.0" text="Resultado:" />
+      <TextField fx:id="txtResultado" layoutX="95.0" layoutY="137.0" />
     </children>
 </AnchorPane>
