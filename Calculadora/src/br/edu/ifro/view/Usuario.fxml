@@ -13,7 +13,7 @@
       <Label layoutX="42.0" layoutY="136.0" text="Confirme sua Senha:" />
       <TextField fx:id="txtUsuario" layoutX="163.0" layoutY="44.0" />
       <TextField fx:id="txtSenha" layoutX="163.0" layoutY="85.0" />
-      <TextField fx:id="txtConfirmar" layoutX="163.0" layoutY="132.0" />
-      <Button fx:id="btnCriar" layoutX="326.0" layoutY="169.0" mnemonicParsing="false" text="Criar Login" />
+      <TextField fx:id="txtSenha2" layoutX="163.0" layoutY="132.0" />
+      <Button fx:id="btnCriar" layoutX="326.0" layoutY="169.0" mnemonicParsing="false" onAction="#salvar" text="Criar Login" />
    </children>
 </AnchorPane>

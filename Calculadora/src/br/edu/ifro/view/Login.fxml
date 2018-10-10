@@ -6,14 +6,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="203.0" prefWidth="308.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifro.control.LoginController">
+<AnchorPane id="AnchorPane" prefHeight="212.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.edu.ifro.control.LoginController">
    <children>
       <Label layoutX="32.0" layoutY="41.0" text="Usuario:" />
       <Label layoutX="36.0" layoutY="115.0" text="Senha:" />
       <TextField fx:id="txtUsuario" layoutX="99.0" layoutY="37.0" />
+      <Button fx:id="btnLogin" layoutX="202.0" layoutY="164.0" mnemonicParsing="false" onAction="#salvar" text="Login" />
+      <Button fx:id="btnNovo" layoutX="54.0" layoutY="164.0" mnemonicParsing="false" onAction="#abrirLogin" text="Novo Login" />
       <TextField fx:id="txtSenha2" layoutX="99.0" layoutY="111.0" />
-      <Button fx:id="btnLogin" layoutX="202.0" layoutY="164.0" mnemonicParsing="false" text="Login" />
-      <Button fx:id="btnNovo" layoutX="54.0" layoutY="164.0" mnemonicParsing="false" text="Novo Login" />
-      <TextField fx:id="txtSenha" layoutX="99.0" layoutY="111.0" />
+      <CheckBox fx:id="cbMostrar" layoutX="262.0" layoutY="115.0" mnemonicParsing="false" text="Mostrar" />
+      <PasswordField fx:id="txtSenha" layoutX="99.0" layoutY="111.0" />
    </children>
 </AnchorPane>
