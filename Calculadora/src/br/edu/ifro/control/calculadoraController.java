@@ -104,7 +104,8 @@ public class calculadoraController implements Initializable {
        resultado = num1 * num2;
        
        txtResultado.setText(resultado.toString());
-         EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
+        
+       EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
         EntityManager em = emf.createEntityManager();
         
         Historico hist1 = new Historico();
