@@ -41,6 +41,8 @@ public class calculadoraController implements Initializable {
     private Button btnDiv;
     @FXML
     private TextField txtResultado;
+    @FXML
+    private Button btnLimpar;
 
     /**
      * Initializes the controller class.
@@ -63,10 +65,10 @@ public class calculadoraController implements Initializable {
         EntityManager em = emf.createEntityManager();
         
         Historico hist1 = new Historico();
-        hist1.setPrimeiroValor(Double.parseDouble(txtNum1.getText()));
-        hist1.setSegundoValor(Double.parseDouble(txtNum2.getText()));
+        hist1.setPrimeiroValor(num1);
+        hist1.setSegundoValor(num2);
         hist1.setOperador("+");
-        hist1.setResultado(Double.parseDouble(txtResultado.getText()));
+        hist1.setResultado(resultado);
        
        
     }
@@ -86,10 +88,10 @@ public class calculadoraController implements Initializable {
         EntityManager em = emf.createEntityManager();
         
         Historico hist1 = new Historico();
-        hist1.setPrimeiroValor(Double.parseDouble(txtNum1.getText()));
-        hist1.setSegundoValor(Double.parseDouble(txtNum2.getText()));
+        hist1.setPrimeiroValor(num1);
+        hist1.setSegundoValor(num2);
         hist1.setOperador("-");
-        hist1.setResultado(Double.parseDouble(txtResultado.getText()));
+        hist1.setResultado(resultado);
     }
 
     @FXML
@@ -106,10 +108,10 @@ public class calculadoraController implements Initializable {
         EntityManager em = emf.createEntityManager();
         
         Historico hist1 = new Historico();
-        hist1.setPrimeiroValor(Double.parseDouble(txtNum1.getText()));
-        hist1.setSegundoValor(Double.parseDouble(txtNum2.getText()));
+        hist1.setPrimeiroValor(num1);
+        hist1.setSegundoValor(num2);
         hist1.setOperador("*");
-        hist1.setResultado(Double.parseDouble(txtResultado.getText()));
+        hist1.setResultado(resultado);
     }
 
     @FXML
@@ -121,15 +123,15 @@ public class calculadoraController implements Initializable {
        
        resultado = num1 / num2;
        
-       txtResultado.setText(resultado.toString());
+        txtResultado.setText(resultado.toString());
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("calculadora");
         EntityManager em = emf.createEntityManager();
         
         Historico hist1 = new Historico();
-        hist1.setPrimeiroValor(Double.parseDouble(txtNum1.getText()));
-        hist1.setSegundoValor(Double.parseDouble(txtNum2.getText()));
+        hist1.setPrimeiroValor(num1);
+        hist1.setSegundoValor(num2);
         hist1.setOperador("/");
-        hist1.setResultado(Double.parseDouble(txtResultado.getText()));
+        hist1.setResultado(resultado);
     }
     
     

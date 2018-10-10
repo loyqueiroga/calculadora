@@ -16,7 +16,10 @@
       <Label layoutX="34.0" layoutY="81.0" text="Número 2:" />
       <TableView layoutX="41.0" layoutY="186.0" prefHeight="200.0" prefWidth="407.0">
         <columns>
-          <TableColumn prefWidth="406.0" text="Histórico" />
+          <TableColumn prefWidth="93.0" text="Número 1" />
+            <TableColumn prefWidth="93.0" text="Número 2" />
+            <TableColumn prefWidth="122.0" text="Operador" />
+            <TableColumn prefWidth="98.0" text="Resultado" />
         </columns>
       </TableView>
       <Button fx:id="btnSub" layoutX="335.0" layoutY="56.0" onAction="#subtracao" prefHeight="25.0" prefWidth="69.0" text="Subtrair" />
@@ -24,5 +27,6 @@
       <Button fx:id="btnDiv" layoutX="352.0" layoutY="87.0" onAction="#divisao" text="Dividir" />
       <Label layoutX="34.0" layoutY="141.0" text="Resultado:" />
       <TextField fx:id="txtResultado" layoutX="95.0" layoutY="137.0" />
+      <Button fx:id="btnLimpar" layoutX="284.0" layoutY="137.0" onAction="#limpar" text="Limpar" />
     </children>
 </AnchorPane>
